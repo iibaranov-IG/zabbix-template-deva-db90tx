@@ -480,7 +480,7 @@
                                         "expression": "max(/DEVABroadcast DB90TX by SNMP/stream.active[{#SNMPINDEX}],3m)=0",
                                         "recovery_mode": "RECOVERY_EXPRESSION",
                                         "recovery_expression": "last(/DEVABroadcast DB90TX by SNMP/stream.active[{#SNMPINDEX}])=1",
-                                        "name": "Conexi\u00f3n {#SNMPINDEX} caida (IP: {ITEM.LASTVALUE2})",
+                                        "name": "Conexi\u00f3n {#SNMPINDEX} caida",
                                         "priority": "WARNING",
                                         "manual_close": "YES"
                                     }
@@ -513,8 +513,8 @@
                                         "uuid": "5d31350d634b48388d24f30914c26bc1",
                                         "expression": "change(/DEVABroadcast DB90TX by SNMP/stream.clientTIME[{#SNMPINDEX}]) < 0",
                                         "recovery_mode": "RECOVERY_EXPRESSION",
-                                        "recovery_expression": "(now() - last(/DEVABroadcast DB90TX by SNMP/stream.clientTIME[{#SNMPINDEX}],#1)) >= 259200",
-                                        "name": "Conexi\u00f3n {#SNMPINDEX} reiniciada / reconectada (IP: {ITEM.LASTVALUE2})",
+                                        "recovery_expression": "last(/DEVABroadcast DB90TX by SNMP/stream.clientTIME[{#SNMPINDEX}]) > 0",
+                                        "name": "Conexi\u00f3n {#SNMPINDEX} reiniciada / reconectada",
                                         "priority": "INFO",
                                         "manual_close": "YES"
                                     }
@@ -567,11 +567,6 @@
                         "macro": "{$SNMP.TIMEOUT}",
                         "value": "5m",
                         "description": "Time interval for the SNMP availability trigger."
-                    },
-                    {
-                        "macro": "{$SNMP_COMMUNITY}",
-                        "value": "public",
-                        "description": "comunidad por defecto"
                     }
                 ],
                 "valuemaps": [
