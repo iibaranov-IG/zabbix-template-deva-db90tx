@@ -20,6 +20,13 @@ Plantilla de Zabbix para el monitoreo mediante SNMP v1 del transmisor/encoder de
 * Zabbix 6.0 LTS / 6.4 / 7.0 LTS+
 * Comunidad SNMP configurada en el equipo DEVA DB90TX y en la interfaz SNMP del host de Zabbix. El template no almacena ni aplica credenciales SNMP.
 
+## Validación offline
+La integridad del JSON y de las expresiones de recuperación puede comprobarse sin conectarse al transmisor:
+
+```bash
+python -m unittest discover -s tests -v
+```
+
 ## Licencia
 MIT License - Libre para usar y modificar.
 
